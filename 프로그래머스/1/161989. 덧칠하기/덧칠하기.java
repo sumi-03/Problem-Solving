@@ -1,17 +1,31 @@
 class Solution {
+    
     public int solution(int n, int m, int[] section) {
-        int answer = 0;
-        int currentPainted = 0;
-
-        for (int i = 0; i < section.length; i++) {
-
-            if (section[i] > currentPainted) {
-
-                currentPainted = section[i] + m - 1;
-                answer++;
+    
+        int count = 1;
+        int i=1;
+        int current = section[0];
+        
+        current+=m;
+        
+        while(true){
+            
+            if(i==section.length){
+                break;
+            }
+            
+            if(section[i]>=current){
+                current = section[i]+m;
+                count++;
+            }
+            else{
+                
+                i++;
             }
         }
-
-        return answer;
+    
+        return count;
+        
     }
+
 }
